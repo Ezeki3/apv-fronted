@@ -3,9 +3,9 @@
 function App() {
 
   return (
-    <div> Hola Vite</div>
+    <h1 className="font-bold text-2xl"> Hola Vite</h1>
   )
-  
+
 }
 
 export default App
