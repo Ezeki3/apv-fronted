@@ -4,7 +4,7 @@ export const AuthLayout = () => {
   return (
     
     <>
-      <h1>AuthLayout</h1>
+      <h1>Administrar Pacientes de Veterinaria</h1>
       
       <Outlet />
     </>
