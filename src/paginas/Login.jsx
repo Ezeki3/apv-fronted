@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 export const Login = () => {
   return (
@@ -39,6 +40,19 @@ export const Login = () => {
             uppercase font-bold mt-5 hover:cursor-pointer hover:bg-indigo-800 md:w-auto"
           />
         </form>
+
+        <nav className="mt-10 lg:flex lg:justify-between">
+          <Link 
+            className="block text-center my-5 text-gray-500"
+            to="/registrar">
+            ¿No tienes una cuenta? Registrate
+          </Link>
+          <Link 
+            className="block text-center my-5 text-gray-500"
+            to="/olvide-password">
+            Olvide mi Password
+          </Link>
+        </nav>
       </div>
     </>
   )
