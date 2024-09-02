@@ -7,3 +7,4 @@ export const Alerta = ( {alerta} ) => {
     </div>
   )
 }
+export default Alerta;
