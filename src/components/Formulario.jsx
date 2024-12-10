@@ -1,6 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function Formulario() {
+
+  const [nombre, setNombre] = useState('');
+  const [propietario, setPropietario] = useState('');
+  const [email, setEmail] = useState('');
+  const [fecha, setFecha] = useState(Date.now);
+  const [sintomas, setSintomas] = useState('');
+
+  const [alerta, setAlerta] = useState({});
+  
   return (
     <>
       <p className="text-lg text-center mb-10">
@@ -20,6 +29,8 @@ export default function Formulario() {
             type="text"
             placeholder="Nombre de la mascota"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
           />
         </div>
 
@@ -33,6 +44,8 @@ export default function Formulario() {
             type="text"
             placeholder="Nombre del Propietario"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={propietario}
+            onChange={(e) => setPropietario(e.target.value)}
           />
         </div>
 
@@ -46,6 +59,8 @@ export default function Formulario() {
             type="email"
             placeholder="Email del Propietario"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
@@ -58,6 +73,8 @@ export default function Formulario() {
             id="fecha"
             type="date"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={fecha}
+            onChange={(e) => setFecha(e.target.value)}
           />
         </div>
 
@@ -70,6 +87,8 @@ export default function Formulario() {
             id="sintomas"
             placeholder="Describe los Síntomas"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={sintomas}
+            onChange={(e) => setSintomas(e.target.value)}
           />
         </div>
 
