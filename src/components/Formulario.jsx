@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import Alerta from './Alerta';
 
 export default function Formulario() {
 
@@ -9,6 +10,21 @@ export default function Formulario() {
   const [sintomas, setSintomas] = useState('');
 
   const [alerta, setAlerta] = useState({});
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    // Validamos el formulario
+    if ( [nombre, propietario, email, fecha, sintomas].includes('')) {
+      setAlerta({
+        msg: 'Todos los campos son obligatorios',
+        error: true
+      })
+      return;
+    }
+  }
+
+  const { msg } = alerta;
   
   return (
     <>
@@ -17,7 +33,8 @@ export default function Formulario() {
         <span className="text-indigo-600 font-bold">Administralos</span>
       </p>
 
-      <form className="bg-white py-10 px-5 mb-10 lg:mb-0 shadow-md rounded-md">
+      <form className="bg-white py-10 px-5 mb-10 lg:mb-5 shadow-md rounded-md"
+        onSubmit={handleSubmit}>
 
         <div className="mb-5">
           <label htmlFor='mascota'
@@ -100,6 +117,8 @@ export default function Formulario() {
         />
 
       </form>
+
+      {msg && <Alerta alerta={alerta}/>}
 
     </>
   )
