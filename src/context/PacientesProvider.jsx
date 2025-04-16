@@ -34,6 +34,13 @@ export const PacientesProvider = ({children}) => {
   }, [])
 
   const guardarPaciente = async (paciente) => {
+
+    if( paciente.id){
+      console.log('editando');
+    } else {
+      console.log('nuevo');
+    }
+
     try {
       const token = localStorage.getItem('token')
       const config = {
@@ -55,8 +62,6 @@ export const PacientesProvider = ({children}) => {
 
   const setEdicion = (paciente) => {
     setPaciente(paciente)
-    console.log(paciente);
-    
   }
 
   return (
@@ -64,7 +69,8 @@ export const PacientesProvider = ({children}) => {
       value={{
         pacientes,
         guardarPaciente,
-        setEdicion
+        setEdicion,
+        paciente
       }}
     >
       {children}
