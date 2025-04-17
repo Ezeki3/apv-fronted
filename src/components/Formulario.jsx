@@ -38,9 +38,17 @@ export default function Formulario() {
       return;
     }
 
-    setAlerta({});
     guardarPaciente({ nombre, propietario, email, fecha, sintomas, id });
-
+    setAlerta({
+      msg: 'Guardado Correctamente',
+    });
+    setNombre('')
+    setPropietario('')
+    setEmail('')
+    setFecha('')
+    setSintomas('')
+    setId('')
+    
   }
 
   const { msg } = alerta;
