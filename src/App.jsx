@@ -11,6 +11,8 @@ import { AdministrarPacientes } from "./paginas/AdministrarPacientes";
 
 import { AuthProvider } from "./context/AuthProvider";
 import { PacientesProvider } from "./context/PacientesProvider";
+import { EditarPerfil } from "./paginas/EditarPerfil";
+import { CambiarPassword } from "./paginas/CambiarPassword";
 
 function App() {
 
@@ -29,6 +31,8 @@ function App() {
             
             <Route path="/admin" element={ <RutaProtegida/>} >
               <Route index element={ <AdministrarPacientes/>} />
+              <Route path="perfil" element={ <EditarPerfil/>} />
+              <Route path="cambiar-password" element={ <CambiarPassword/>} />
             </Route>
 
           </Routes>
