@@ -13,7 +13,7 @@ export const EditarPerfil = () => {
     setPerfil(auth)
   }, [auth]);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     const { nombre, email} = perfil;
@@ -23,9 +23,17 @@ export const EditarPerfil = () => {
         msg: 'Email y Nombre son obligatorios',
         error: true
       })
+      setTimeout(() => {
+        setAlerta({})
+      }, 2000);
       return
     }
-    actualizarPerfil(perfil);
+    const resultado = await actualizarPerfil(perfil);
+    setAlerta(resultado);
+
+    setTimeout(() => {
+      setAlerta({})
+    }, 2000);
   }
 
   const { msg } = alerta;
@@ -41,7 +49,7 @@ export const EditarPerfil = () => {
         <div className="flex justify-center">
           <div className="w-full md:w-1/2 bg-white shadow rounded-lg p-5">
 
-            {msg && <Alerta alerta={alerta}/>}
+            {msg && <Alerta alerta={alerta} />}
 
             <form onSubmit={handleSubmit}>
               <div className="my-3">
