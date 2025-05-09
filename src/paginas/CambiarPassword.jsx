@@ -13,7 +13,7 @@ export const CambiarPassword = () => {
     pwd_nuevo: ''
   });
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     if( Object.values(password).some(campo => campo === '')) {
@@ -40,7 +40,12 @@ export const CambiarPassword = () => {
       return
     }
 
-    guardarPassword(password)
+   const respuesta = await guardarPassword(password);
+
+    setAlerta(respuesta);
+    setTimeout(() => {
+      setAlerta({})
+    }, 2000);
 
   }
 
